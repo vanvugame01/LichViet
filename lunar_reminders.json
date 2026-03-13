@@ -9,16 +9,5 @@
     "repeat_yearly": false,
     "enabled": true,
     "last_triggered_date": null
-  },
-  {
-    "title": "Nhắc việc",
-    "lunar_day": 24,
-    "lunar_month": 1,
-    "lunar_year": 2026,
-    "hour": 10,
-    "minute": 0,
-    "repeat_yearly": false,
-    "enabled": false,
-    "last_triggered_date": "2026-03-12"
   }
 ]
