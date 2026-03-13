@@ -1,0 +1,131 @@
+QWidget {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+QLabel {
+    background: transparent;
+}
+
+#monthTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+#weekdayHeader {
+    font-size: 11px;
+    color: #475569;
+    font-weight: 600;
+}
+
+#sundayHeader {
+    font-size: 11px;
+    color: #e11d48;
+    font-weight: 600;
+}
+
+#titleLabel {
+    font-size: 14px;
+    font-weight: 800;
+    color: #b45309;
+    letter-spacing: 1px;
+}
+
+#navButton {
+    font-size: 18px;
+    min-width: 28px;
+    max-width: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: #334155;
+}
+
+#navButton:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+#capsuleBox {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+#capsuleButton {
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    min-width: 24px;
+    min-height: 24px;
+    color: #64748b;
+    border-radius: 10px;
+}
+
+#capsuleButton:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+#divider {
+    background-color: #e2e8f0;
+}
+
+#bottomWeekday {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+}
+
+#bottomDay {
+    font-size: 42px;
+    font-weight: 800;
+    color: #059669;
+    margin: -5px 0;
+}
+
+#bottomMonth {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+}
+
+#bottomType {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+#badge {
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #475569;
+    background-color: #f8fafc;
+}
+
+#detailMain {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+#detailSub {
+    font-size: 11px;
+    color: #334155;
+    font-weight: 600;
+}
+
+#detailFoot {
+    font-size: 10px;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.4;
+}
