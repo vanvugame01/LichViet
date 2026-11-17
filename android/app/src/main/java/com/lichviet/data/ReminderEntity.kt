@@ -2,6 +2,7 @@ package com.lichviet.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.ColumnInfo
 
 @Entity(tableName = "reminders")
 data class ReminderEntity(
@@ -14,5 +15,6 @@ data class ReminderEntity(
     val minute: Int,
     val isRepeatYearly: Boolean,
     val isEnabled: Boolean = true,
-    val lastTriggeredDate: String? = null
+    val lastTriggeredDate: String? = null,
+    @ColumnInfo(defaultValue = "0") val isLeap: Boolean = false
 )
