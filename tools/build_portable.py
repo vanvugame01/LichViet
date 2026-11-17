@@ -1,5 +1,4 @@
 import os
-import shutil
 import subprocess
 import sys
 import zipfile
@@ -10,6 +9,16 @@ from PyQt5.QtGui import QColor, QImage, QPainter, QPen
 
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def create_portable_archive(destination, archive):
+    temporary = archive.with_suffix(".tmp")
+    with zipfile.ZipFile(temporary, "w", zipfile.ZIP_DEFLATED) as package:
+        for name in ("LichViet.exe", "HUONG-DAN.txt"):
+            package.write(destination / name, arcname=f"LichViet/{name}")
+        # Goi phan phoi luon rong, khong dua lich ca nhan vao ban public.
+        package.writestr("LichViet/lunar_reminders.json", "[]\n")
+    temporary.replace(archive)
 
 
 def create_icon(path):
@@ -57,9 +66,9 @@ def main():
     ]
     subprocess.run(command, cwd=ROOT, env=environment, check=True, timeout=600)
     data_file = destination / "lunar_reminders.json"
-    if not data_file.exists() and (ROOT / "lunar_reminders.json").exists():
-        # Chi tao ban sao lan dau, khong ghi de du lieu portable da su dung.
-        shutil.copy2(ROOT / "lunar_reminders.json", data_file)
+    if not data_file.exists():
+        # Giu nguyen du lieu portable da co; lan dau tao danh sach rong.
+        data_file.write_text("[]\n", encoding="utf-8")
     guide = destination / "HUONG-DAN.txt"
     guide.write_text(
         "LỊCH VIỆT — BẢN PORTABLE WINDOWS 64-BIT\n\n"
@@ -73,10 +82,7 @@ def main():
         encoding="utf-8-sig",
     )
     archive = ROOT / "output" / "LichViet-Portable-Windows-x64.zip"
-    with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as package:
-        for file in [destination / "LichViet.exe", guide, data_file]:
-            if file.exists():
-                package.write(file, arcname=f"LichViet/{file.name}")
+    create_portable_archive(destination, archive)
     print(f"Executable: {destination / 'LichViet.exe'}")
     print(f"Archive: {archive}")
 
